@@ -64,11 +64,6 @@ class GameFragment : Fragment() {
         // Makes it so that you can bind variables to the xml
         binding.lifecycleOwner = this
 
-        viewModel.currentTime.observe(this, Observer { newTime ->
-            binding.timerText.text = DateUtils.formatElapsedTime(newTime)
-
-        })
-
         viewModel.eventGameFinish.observe(this, Observer { hasFinished ->
             if(hasFinished){
                 gameFinished()
@@ -78,8 +73,6 @@ class GameFragment : Fragment() {
 
         return binding.root
     }
-
-
 
     /**
      * Called when the game is finished
