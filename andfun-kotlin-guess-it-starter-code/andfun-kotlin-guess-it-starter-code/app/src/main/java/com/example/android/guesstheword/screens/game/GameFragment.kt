@@ -52,17 +52,12 @@ class GameFragment : Fragment() {
                 false
         )
 
+        binding.gameViewModel = viewModel
+
         Log.i("GameFragment", "Called ViewModelProviders.of!")
 
         // Passing in the fragment and the specific view model
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
-
-        binding.correctButton.setOnClickListener {
-            viewModel.onCorrect()
-        }
-        binding.skipButton.setOnClickListener {
-            viewModel.onSkip()
-        }
 
         // Code that gets called when the live data changes. In this case, the score
         viewModel.score.observe(this, Observer {newScore ->
