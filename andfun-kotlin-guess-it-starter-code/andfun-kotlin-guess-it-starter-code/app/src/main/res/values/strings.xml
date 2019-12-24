@@ -27,3 +27,6 @@
     <string name="quote_format">\"%s\"</string>
     <string name="score_format">Current Score: %d</string>
 </resources>
+
+<!--%s means string argument-->
+<!--%d numerical argument-->

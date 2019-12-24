@@ -57,22 +57,12 @@ class GameFragment : Fragment() {
 
         // Passing in the fragment and the specific view model
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
-        
+
+        // Makes it so that you can bind functions to the xml
         binding.gameViewModel = viewModel
 
-        // Code that gets called when the live data changes. In this case, the score
-        viewModel.score.observe(this, Observer {newScore ->
-
-            binding.scoreText.text = newScore.toString()
-
-        })
-
-        // Code that gets called when the live data changes. In this case, the word
-        viewModel.word.observe(this, Observer { newWord ->
-
-            binding.wordText.text = newWord
-
-        })
+        // Makes it so that you can bind variables to the xml
+        binding.lifecycleOwner = this
 
         viewModel.currentTime.observe(this, Observer { newTime ->
             binding.timerText.text = DateUtils.formatElapsedTime(newTime)
